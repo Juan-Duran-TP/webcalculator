@@ -1,0 +1,26 @@
+{
+  "name": "calc",
+  "version": "1.0.0",
+  "description": "A Calculator to demonstrate unit testing",
+  "main": "Calculator.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juan-Duran-TP/calculator.git"
+  },
+  "keywords": [
+    "unit testing",
+    "Caculator"
+  ],
+  "author": "Juan Duran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juan-Duran-TP/calculator/issues"
+  },
+  "homepage": "https://github.com/Juan-Duran-TP/calculator#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
