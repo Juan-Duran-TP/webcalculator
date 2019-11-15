@@ -148,4 +148,50 @@ describe('calculator', () => {
         })
     })
 
+    describe('infix notation', () => {
+        test("has an infix function",() => {
+            const subject = new Calculator(5);
+            expect(subject.infixNotation).toBeDefined();
+        })
+
+        test("infix changes register to NaN if nothing is passed to it",() => {
+            const subject = new Calculator(5);
+            expect(subject.infixNotation()).toEqual({value: NaN});
+        })
+
+        test("infix can be chained",() => {
+            const subject = new Calculator(5);
+            expect(subject.infixNotation().infixNotation).toBeDefined();
+        })
+        
+        test("infix performs addition",() => {
+            const subject = new Calculator(5);
+            expect(subject.infixNotation('8 + 2')).toEqual({value: 10});
+        })
+
+        test("infix performs subtraction",() => {
+            const subject = new Calculator(5);
+            expect(subject.infixNotation('8 - 2')).toEqual({value: 6});
+        })
+        
+        test("infix performs multiplication",() => {
+            const subject = new Calculator(5);
+            expect(subject.infixNotation('8 * 2')).toEqual({value: 16});
+        })
+
+        test("infix performs division",() => {
+            const subject = new Calculator(5);
+            expect(subject.infixNotation('8 / 2')).toEqual({value: 4});
+        })
+        
+        test("infix recognizes negative values",() => {
+            const subject = new Calculator(5);
+            expect(subject.infixNotation('8 / -2')).toEqual({value: -4});
+        })        
+
+        test("infix performs larger expressions",() => {
+            const subject = new Calculator(5);
+            expect(subject.infixNotation('1 + 3 - 2 * 8')).toEqual({value: 16});
+        })
+    })
 })
