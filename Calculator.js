@@ -97,5 +97,45 @@ class Calculator {
         }
         return this;
     }
+
+    infixNotation(expression){
+        if (typeof expression === 'undefined'){
+            this.value = NaN;
+        }
+        else {
+            this.clear();
+            let elements = expression.split(" ");
+            this.add(parseFloat(elements[0],10));
+            elements.shift();
+            let operator = "";
+            let arg = 0;
+            for (const element of elements){
+                if (!isNaN(element)){
+                    arg = parseFloat(element,10);
+                    switch (operator){
+                        case "+":
+                            this.add(arg);
+                            break;
+                        case "-":
+                            this.subtract(arg);
+                            break;
+                        case "*":
+                            this.multiply(arg);
+                            break;
+                        case "/":
+                            this.divide(arg);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else {
+                    operator = element;
+                }
+            }
+        }
+        return this;
+    }
 }
+
 module.exports = Calculator;
